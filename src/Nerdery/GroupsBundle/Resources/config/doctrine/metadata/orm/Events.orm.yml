@@ -1,0 +1,65 @@
+Events:
+    type: entity
+    table: events
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+        title:
+            type: string
+            length: 127
+            fixed: false
+            nullable: false
+        description:
+            type: text
+            nullable: false
+        location:
+            type: string
+            length: 127
+            fixed: false
+            nullable: false
+        start:
+            type: datetime
+            nullable: false
+        end:
+            type: datetime
+            nullable: false
+        created:
+            type: datetime
+            nullable: false
+        updated:
+            type: datetime
+            nullable: false
+    manyToMany:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: event
+            joinTable:
+                name: events_users
+                joinColumns:
+                    -
+                        name: event_id
+                        referencedColumnName: id
+                    -
+                        name: event_club_id
+                        referencedColumnName: club_id
+                inverseJoinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+            orderBy: null
+    oneToOne:
+        club:
+            targetEntity: Clubs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                club_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

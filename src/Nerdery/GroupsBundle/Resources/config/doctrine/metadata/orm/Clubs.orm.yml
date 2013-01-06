@@ -1,0 +1,60 @@
+Clubs:
+    type: entity
+    table: clubs
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 63
+            fixed: false
+            nullable: false
+        description:
+            type: text
+            nullable: false
+        founded:
+            type: date
+            nullable: false
+        inviteOnly:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: invite_only
+        public:
+            type: integer
+            unsigned: true
+            nullable: false
+        memberCountCursor:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: member_count_cursor
+        created:
+            type: datetime
+            nullable: false
+        updated:
+            type: datetime
+            nullable: false
+    manyToMany:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            mappedBy: null
+            inversedBy: club
+            joinTable:
+                name: clubs_users
+                joinColumns:
+                    -
+                        name: club_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

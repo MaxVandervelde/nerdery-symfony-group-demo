@@ -1,0 +1,62 @@
+Roles:
+    type: entity
+    table: roles
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: true
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        title:
+            type: string
+            length: 31
+            fixed: false
+            nullable: false
+        canEditClub:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_edit_club
+        canDeleteClub:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_delete_club
+        canCreateEvent:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_create_event
+        canEditEvent:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_edit_event
+        canDeleteEvent:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_delete_event
+        canDeleteUser:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_delete_user
+        canInviteUser:
+            type: integer
+            unsigned: true
+            nullable: false
+            column: can_invite_user
+    manyToOne:
+        club:
+            targetEntity: Clubs
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                club_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
