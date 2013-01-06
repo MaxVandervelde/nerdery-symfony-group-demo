@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     localhost
+    database_port:     ~
+    database_name:     nerdery_groups
+    database_user:     nerdery_groups
+    database_password: S4ZN8A9Ajn8GccXz
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            a46b66b739b90ae59d631f595c8f4589
