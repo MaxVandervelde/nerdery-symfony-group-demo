@@ -44,9 +44,6 @@ Events:
                     -
                         name: event_id
                         referencedColumnName: id
-                    -
-                        name: event_club_id
-                        referencedColumnName: club_id
                 inverseJoinColumns:
                     -
                         name: user_id

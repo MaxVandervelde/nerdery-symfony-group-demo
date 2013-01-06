@@ -76,8 +76,7 @@ class Events
      * @ORM\ManyToMany(targetEntity="Users", inversedBy="event")
      * @ORM\JoinTable(name="events_users",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="event_id", referencedColumnName="id"),
-     *     @ORM\JoinColumn(name="event_club_id", referencedColumnName="club_id")
+     *     @ORM\JoinColumn(name="event_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="user_id", referencedColumnName="id")
@@ -89,8 +88,6 @@ class Events
     /**
      * @var \Clubs
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\OneToOne(targetEntity="Clubs")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="club_id", referencedColumnName="id")
